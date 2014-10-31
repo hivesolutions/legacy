@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+import imp
 import sys
 import functools
 
@@ -123,6 +124,10 @@ def is_bytes(value):
 def reduce(*args, **kwargs):
     if PYTHON_3: return functools.reduce(*args, **kwargs)
     return _reduce(*args, **kwargs)
+
+def reload(*args, **kwargs):
+    if PYTHON_3: return imp.reload(*args, **kwargs)
+    return reload(*args, **kwargs)
 
 def urlopen(*args, **kwargs):
     if PYTHON_3: return urllib.request.urlopen(*args, **kwargs)
