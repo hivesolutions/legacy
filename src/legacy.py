@@ -73,6 +73,9 @@ else: HTTPError = urllib2.HTTPError
 try: _reduce = reduce #@UndefinedVariable
 except: _reduce = None
 
+try: _reload = reload #@UndefinedVariable
+except: _reload = None
+
 def with_meta(meta, *bases):
     return meta("Class", bases, {})
 
@@ -127,7 +130,7 @@ def reduce(*args, **kwargs):
 
 def reload(*args, **kwargs):
     if PYTHON_3: return imp.reload(*args, **kwargs)
-    return reload(*args, **kwargs)
+    return _reload(*args, **kwargs)
 
 def urlopen(*args, **kwargs):
     if PYTHON_3: return urllib.request.urlopen(*args, **kwargs)
