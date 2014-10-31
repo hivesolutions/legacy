@@ -79,6 +79,9 @@ except: _reduce = None
 try: _reload = reload #@UndefinedVariable
 except: _reload = None
 
+try: _unichr = unichr #@UndefinedVariable
+except: _unichr = None
+
 def with_meta(meta, *bases):
     return meta("Class", bases, {})
 
@@ -116,6 +119,10 @@ def orderable(value):
     if not PYTHON_3: return value
     return Orderable(value)
 
+def u(value):
+    if PYTHON_3: return value
+    return value.decode("unicode_escape")
+
 def is_str(value):
     return type(value) == _str
 
@@ -142,6 +149,10 @@ def reduce(*args, **kwargs):
 def reload(*args, **kwargs):
     if PYTHON_3: return imp.reload(*args, **kwargs)
     return _reload(*args, **kwargs)
+
+def unichr(*args, **kwargs):
+    if PYTHON_3: return _chr(*args, **kwargs)
+    return _unichr(*args, **kwargs)
 
 def urlopen(*args, **kwargs):
     if PYTHON_3: return urllib.request.urlopen(*args, **kwargs)
