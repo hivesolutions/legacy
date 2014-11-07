@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+import os
 import imp
 import sys
 import functools
@@ -179,6 +180,11 @@ def execfile(path, global_vars, local_vars):
     finally: file.close()
     code = compile(data, path, "exec")
     exec(code, global_vars, local_vars)
+
+def walk(path, visit, arg):
+    for root, _dirs, _files in os.walk(path):
+        names = os.listdir(root)
+        visit(arg, root, names)
 
 def reduce(*args, **kwargs):
     if PYTHON_3: return functools.reduce(*args, **kwargs)
