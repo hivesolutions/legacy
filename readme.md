@@ -11,4 +11,8 @@ the following topics:
 * Usage of the iterator based operators: `xrange`, `iteritems`, `iterkeys`, `itervalues`
 * Compatibility between the new iterator based operation and the old eager ones for: `range`, `items`, `keys`, `values`
 * Hash related functions must receive byte based strings: `hashlib.update`, `hashlib.md5`, etc
-* Base64 encoding/decoding requires byte strings: `base64.b64encode`, `base64.b64decode`
+* Base64 encoding/decoding requires byte strings: `base64.b64encode`, `base64.b64decode` (only Python 3.2-)
+
+## References
+
+* [Porting Python 2 Code to Python 3](https://docs.python.org/3/howto/pyporting.html)
