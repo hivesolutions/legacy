@@ -4,7 +4,9 @@
 import os
 import imp
 import sys
+import inspect
 import functools
+import itertools
 
 import urllib #@UnusedImport
 
@@ -197,6 +199,11 @@ def is_unicode(value):
 def is_bytes(value):
     if PYTHON_3: return type(value) == _bytes
     else: return type(value) == _str #@UndefinedVariable
+
+def is_generator(value):
+    if inspect.isgenerator(value): return True
+    if type(value) in (itertools.chain,): return True
+    return False
 
 def execfile(path, global_vars, local_vars = None):
     if local_vars == None: local_vars = global_vars
