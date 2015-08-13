@@ -16,3 +16,13 @@ the following topics:
 ## References
 
 * [Porting Python 2 Code to Python 3](https://docs.python.org/3/howto/pyporting.html)
+
+## License
+
+Legacy is currently licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/).
+
+## Build Automation
+
+[![Build Status](https://travis-ci.org/hivesolutions/legacy.svg?branch=master)](https://travis-ci.org/hivesolutions/legacy)
+[![Coverage Status](https://coveralls.io/repos/hivesolutions/legacy/badge.svg?branch=master)](https://coveralls.io/r/hivesolutions/legacy?branch=master)
+[![PyPi Status](https://img.shields.io/pypi/v/legacy.svg)](https://pypi.python.org/pypi/legacy)
