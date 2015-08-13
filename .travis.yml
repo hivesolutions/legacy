@@ -1,0 +1,26 @@
+sudo: false
+language: python
+python:
+  - "2.6"
+  - "2.7"
+  - "3.2"
+  - "3.3"
+  - "3.4"
+  - "3.5-dev"
+  - "pypy"
+  - "pypy3"
+install:
+  - pip install -r requirements.txt
+  - pip install coveralls
+  - pip install twine
+script: coverage run --source=legacy setup.py test
+after_success: coveralls
+deploy:
+  provider: pypi
+  user: joamag
+  password:
+    secure: KLAlP20T9rw8iD7croso3XhJ9FbY63YbwAM/VIRKG0B3hN3MZv+dvQu5wS76wXzz5mLwSbFZH9J0G2yh3Vs+2mJkcgqlpSPRCWMez4edPLxa3E8YFVnGSkYTDjNyqpSibD6P9cr/r2Oi7xkMMl6feqsTSooSrlhau5BDOrSFp/Q=
+  distributions: sdist bdist_wheel
+  on:
+    tags: true
+    python: "2.7"
