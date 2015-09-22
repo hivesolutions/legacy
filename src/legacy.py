@@ -7,8 +7,14 @@ import sys
 import inspect
 import functools
 import itertools
+import collections
 
 import urllib #@UnusedImport
+
+ArgSpec = collections.namedtuple(
+    "ArgSpec",
+    ["args", "varargs", "keywords", "defaults"]
+)
 
 root = sys.path.pop(0)
 try: import urllib2
@@ -222,6 +228,11 @@ def walk(path, visit, arg):
         for dir in list(dirs):
             exists = dir in names
             not exists and dirs.remove(dir)
+
+def getargspec(func):
+    has_full = hasattr(inspect, "getfullargspec")
+    if has_full: return ArgSpec(*inspect.getfullargspec(func)[:4])
+    else: return inspect.getargspec(func)
 
 def reduce(*args, **kwargs):
     if PYTHON_3: return functools.reduce(*args, **kwargs)
