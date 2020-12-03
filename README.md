@@ -23,7 +23,7 @@ Legacy is currently licensed under the [Apache License, Version 2.0](http://www.
 
 ## Build Automation
 
-[![Build Status](https://travis-ci.org/hivesolutions/legacy.svg?branch=master)](https://travis-ci.org/hivesolutions/legacy)
+[![Build Status](https://travis-ci.com/hivesolutions/legacy.svg?branch=master)](https://travis-ci.com/hivesolutions/legacy)
 [![Coverage Status](https://coveralls.io/repos/hivesolutions/legacy/badge.svg?branch=master)](https://coveralls.io/r/hivesolutions/legacy?branch=master)
 [![PyPi Status](https://img.shields.io/pypi/v/legacy.svg)](https://pypi.python.org/pypi/legacy)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://www.apache.org/licenses/)
