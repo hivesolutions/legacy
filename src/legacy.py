@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 import os
-import imp
 import sys
 import inspect
 import functools
@@ -52,6 +51,9 @@ except ImportError: import html.parser; HTMLParser = html.parser
 
 try: import cPickle
 except ImportError: import pickle; cPickle = pickle
+
+try: import importlib
+except ImportError: import imp; importlib = imp
 
 try: import cStringIO
 except ImportError: import io; cStringIO = io
@@ -296,7 +298,7 @@ def reduce(*args, **kwargs):
     return _reduce(*args, **kwargs)
 
 def reload(*args, **kwargs):
-    if PYTHON_3: return imp.reload(*args, **kwargs)
+    if PYTHON_3: return importlib.reload(*args, **kwargs)
     return _reload(*args, **kwargs)
 
 def unichr(*args, **kwargs):
