@@ -15,8 +15,10 @@ setuptools.setup(
     url = "http://legacy.hive.pt",
     zip_safe = False,
     py_modules = [
-        "legacy"
+        "legacy",
+        "legacy_test"
     ],
+    test_suite = "legacy_test",
     package_dir = {
         "" : os.path.normpath("src")
     },
