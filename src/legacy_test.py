@@ -13,6 +13,10 @@ class LegacyTest(unittest.TestCase):
     def tearDown(self):
         unittest.TestCase.tearDown(self)
 
+    def test_has_module(self):
+        self.assertEqual(legacy.has_module("sys"), True)
+        self.assertEqual(legacy.has_module("error_sys"), False)
+
     def test_reload(self):
         import sys
 
