@@ -15,7 +15,13 @@ class LegacyTest(unittest.TestCase):
 
     def test_has_module(self):
         self.assertEqual(legacy.has_module("sys"), True)
-        self.assertEqual(legacy.has_module("error_sys"), False)
+        self.assertEqual(legacy.has_module("sys_error"), False)
+
+    def test_new_module(self):
+        import sys
+
+        value = legacy.new_module("sys_new")
+        self.assertEqual(type(value), type(sys))
 
     def test_reload(self):
         import sys
