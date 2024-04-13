@@ -5,6 +5,7 @@ import unittest
 
 import legacy
 
+
 class LegacyTest(unittest.TestCase):
 
     def setUp(self):
